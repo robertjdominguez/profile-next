@@ -27,18 +27,25 @@ const Article = ({ post, i, posts }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = () => setIsOpen(!isOpen);
 
+  function createDate(postDate) {
+    let d = new Date(postDate);
+    return new Intl.DateTimeFormat("en-US", {
+      dateStyle: "full",
+    }).format(d);
+  }
+
   return (
     <Post onClick={toggleOpen} isOpen={isOpen} layout='position'>
       <General layout>
-        {/* <PostDate layout post={post} posts={posts} i={i}>
-          {new Date(post.createdAt).getFullYear()}
-        </PostDate> */}
         <h3>{post.title}</h3>
         <Metrics layout>
           <Eye val={2590} />
           <Heart val={40} />
         </Metrics>
       </General>
+      <PostDate layout post={post} posts={posts} i={i}>
+        <small>{createDate(post.createdAt)}</small>
+      </PostDate>
       <AnimatePresence>
         <Deets
           style={{ minHeight: `10vh` }}
@@ -70,6 +77,10 @@ export const Post = styled(motion.article)`
   min-height: 100%;
   margin-bottom: 1vh;
 
+  h3 {
+    color: var(--accent);
+  }
+
   :hover {
     background: var(--dark-grey);
   }
@@ -77,8 +88,10 @@ export const Post = styled(motion.article)`
 
 export const Deets = styled(motion.div)`
   display: grid;
+  transition: ease-in-out 0.2s;
+
   button {
-    background: var(--accent);
+    background: transparent;
     border: solid 1px var(--accent);
     border-radius: 13px;
     color: var(--foreground);
@@ -97,13 +110,14 @@ export const Deets = styled(motion.div)`
     line-height: 1.7;
     margin-right: 2vw;
   }
+
+  :hover > button {
+    background: var(--accent);
+  }
 `;
 
 export const PostDate = styled(motion.span)`
-  opacity: ${(props) =>
-    new Date(props.post.date).getFullYear() === props.posts[props.i - 1]?.date
-      ? 0
-      : 1};
+  color: var(--foreground);
 `;
 
 export const General = styled(motion.div)`
