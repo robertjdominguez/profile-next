@@ -10,6 +10,13 @@ import styled from "styled-components";
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>
+          DominguezDev | Rob Dominguez: developer, educator, director of
+          education technology
+        </title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      </Head>
       <Hero
         variants={headingAnimations}
         initial='hidden'

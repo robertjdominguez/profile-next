@@ -10,6 +10,7 @@ import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { headingAnimations } from "../../styles/Lib";
 import Eye from "../../styles/Eye";
 import Heart from "../../styles/Heart";
+import Head from "next/head";
 
 function createDate(postDate) {
   let d = new Date(postDate);
@@ -42,24 +43,35 @@ const components = {
 const Post = ({ post }) => {
   console.log(post);
   return (
-    <Body
-      variants={headingAnimations}
-      initial='hidden'
-      animate='visible'
-      exit='hidden'
-    >
-      <h1>{post.title}</h1>
-      <Time>{createDate(post.createdAt)}</Time>
-      <Metrics layout>
-        <Eye slug={post.slug} methodChoice='POST' />
-        {/* <Heart val={40} /> */}
-      </Metrics>
-      <ReactMarkdown
-        components={components}
-        rehypePlugins={[rehypeRaw]}
-        children={post.body}
-      />
-    </Body>
+    <>
+      <Head>
+        <meta
+          property='og:url'
+          content={`https://dominguezdev.com/blog/${post.slug}`}
+        />
+        <meta property='og:title' content={`${post.title}`} />
+        <meta property='og:description' content={`${post.hook}`} />
+        <meta property='og:image' content={`${post.image.url}`} />
+      </Head>
+      <Body
+        variants={headingAnimations}
+        initial='hidden'
+        animate='visible'
+        exit='hidden'
+      >
+        <h1>{post.title}</h1>
+        <Time>{createDate(post.createdAt)}</Time>
+        <Metrics layout>
+          <Eye slug={post.slug} methodChoice='POST' />
+          {/* <Heart val={40} /> */}
+        </Metrics>
+        <ReactMarkdown
+          components={components}
+          rehypePlugins={[rehypeRaw]}
+          children={post.body}
+        />
+      </Body>
+    </>
   );
 };
 
@@ -74,6 +86,10 @@ const Body = styled(motion.div)`
   max-width: var(--maxxed-out);
   padding-left: var(--padded-out);
   padding-right: var(--padded-out);
+
+  h3 {
+    font-size: var(--blog-heading);
+  }
 
   p {
     line-height: 1.8;
@@ -102,9 +118,9 @@ const Body = styled(motion.div)`
 `;
 
 const Time = styled.h3`
-  font-weight: 400;
-  font-size: 0.9rem;
-  margin-top: 0;
+  font-weight: 400 !important;
+  font-size: 0.9rem !important;
+  margin-top: 0 !important;
 `;
 
 export const Metrics = styled(motion.div)`
@@ -144,6 +160,9 @@ export async function getStaticProps({ params }) {
         body
         createdAt
         slug
+        image {
+          url
+        }
       }
     }
   `;

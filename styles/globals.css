@@ -11,6 +11,7 @@
   /* Font sizes */
   --hero: clamp(2rem, 3vw, 3rem);
   --sub-heading: clamp(1.1rem, 1.5vw, 1.3rem);
+  --blog-heading: clamp(1.3rem, 1.8vw, 1.5rem);
 
   /* Themeing */
   --foreground: var(--white);
