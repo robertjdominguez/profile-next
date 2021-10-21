@@ -41,11 +41,10 @@ const components = {
 };
 
 const Post = ({ post }) => {
-  console.log(post);
   return (
     <>
       <Head>
-        <title>`DominguezDev - Blog | ${post.title}`</title>
+        <title>DominguezDev - Blog | {post.title}</title>
         <meta
           property='og:url'
           content={`https://dominguezdev.com/blog/${post.slug}`}

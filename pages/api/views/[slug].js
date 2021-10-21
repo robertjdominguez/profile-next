@@ -13,13 +13,11 @@ export default async (req, res) => {
 
   if (req.method === "GET") {
     // Query the pages table in the database where slug equals the request params slug.
-    console.log(`From a GET: ${req.query.slug}`);
     const { data } = await SupabaseAdmin.from("pages")
       .select("view_count")
       .filter("slug", "eq", req.query.slug);
 
     if (data) {
-      console.log(data);
       return res.status(200).json({
         total: data[0]?.view_count || null,
       });

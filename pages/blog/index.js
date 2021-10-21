@@ -1,4 +1,4 @@
-import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { headingAnimations } from "../../styles/Lib";
@@ -9,6 +9,9 @@ import BlogPosts from "../../components/blog/BlogPosts";
 const blog = ({ data }) => {
   return (
     <>
+      <Head>
+        <title>DominguezDev | Blog</title>
+      </Head>
       <ContentHeader
         className='container'
         variants={headingAnimations}

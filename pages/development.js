@@ -1,4 +1,4 @@
-import React from "react";
+import Head from "next/head";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { headingAnimations } from "../styles/Lib";
@@ -10,6 +10,9 @@ import Projects from "../components/work/Projects";
 const development = () => {
   return (
     <>
+      <Head>
+        <title>DominguezDev | Development Work</title>
+      </Head>
       <ContentHeader
         variants={headingAnimations}
         initial='hidden'
