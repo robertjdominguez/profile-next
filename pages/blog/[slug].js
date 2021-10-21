@@ -8,6 +8,16 @@ import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { dracula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { headingAnimations } from "../../styles/Lib";
+import Eye from "../../styles/Eye";
+import Heart from "../../styles/Heart";
+
+function createDate(postDate) {
+  let d = new Date(postDate);
+  return new Intl.DateTimeFormat("en-US", {
+    dateStyle: "full",
+    timeStyle: "short",
+  }).format(d);
+}
 
 const components = {
   code({ node, inline, className, children, ...props }) {
@@ -30,6 +40,7 @@ const components = {
 };
 
 const Post = ({ post }) => {
+  console.log(post);
   return (
     <Body
       variants={headingAnimations}
@@ -38,6 +49,11 @@ const Post = ({ post }) => {
       exit='hidden'
     >
       <h1>{post.title}</h1>
+      <Time>{createDate(post.createdAt)}</Time>
+      <Metrics layout>
+        <Eye slug={post.slug} methodChoice='POST' />
+        {/* <Heart val={40} /> */}
+      </Metrics>
       <ReactMarkdown
         components={components}
         rehypePlugins={[rehypeRaw]}
@@ -54,11 +70,66 @@ const Body = styled(motion.div)`
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 10vh;
   max-width: var(--maxxed-out);
-  padding: var(--padded-out);
+  padding-left: var(--padded-out);
+  padding-right: var(--padded-out);
 
   p {
     line-height: 1.8;
+  }
+
+  ul,
+  ol {
+    line-height: 1.8;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--foreground);
+    transition: ease-in-out 0.2s;
+    border-bottom: solid 2px var(--accent);
+
+    :hover {
+      color: var(--accent);
+    }
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+`;
+
+const Time = styled.h3`
+  font-weight: 400;
+  font-size: 0.9rem;
+  margin-top: 0;
+`;
+
+export const Metrics = styled(motion.div)`
+  display: flex;
+  align-items: center;
+  justify-items: flex-end;
+  gap: 20%;
+  width: 200px;
+  margin-bottom: 5vh;
+  div {
+    display: flex;
+    gap: 20%;
+    height: 22px;
+    width: 100%;
+    align-items: center;
+
+    svg {
+      height: 100%;
+      width: auto;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: grey;
+    }
   }
 `;
 
@@ -72,6 +143,7 @@ export async function getStaticProps({ params }) {
         hook
         body
         createdAt
+        slug
       }
     }
   `;

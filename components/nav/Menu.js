@@ -43,11 +43,25 @@ const Menu = () => {
             <a>Blog</a>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink onClick={(e) => handleLink(e, "/contact")}>
             <a>Contact</a>
           </NavLink>
-        </li>
+        </li> */}
+        <Social>
+          <a href='https://github.com/robertjdominguez' target='_blank'>
+            <img src='./gh.svg' alt='Github Profile for Rob Dominguez' />
+          </a>
+          <a href='https://twitter.com/_robdominguez' target='_blank'>
+            <img src='./twitter.svg' alt='Twitter Profile for Rob Dominguez' />
+          </a>
+          <a
+            href='https://www.linkedin.com/in/rob-dominguez-0b258b147'
+            target='_blank'
+          >
+            <img src='./li.svg' alt='LinkedIn Profile for Rob Dominguez' />
+          </a>
+        </Social>
       </Choices>
     </AnimatePresence>
   );
@@ -57,7 +71,7 @@ export default Menu;
 
 export const Choices = styled(motion.ul)`
   list-style: none;
-  padding: 4vw;
+  padding: 10vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -69,6 +83,23 @@ export const Choices = styled(motion.ul)`
   z-index: 5;
   li {
     margin-bottom: 2vh;
+    border-left: solid clamp(4px, 1vw, 9px) var(--accent);
+    padding-left: 2vw;
+  }
+`;
+
+const Social = styled.li`
+  display: flex;
+  gap: 5vw;
+  justify-items: center;
+  align-items: center;
+  border-left: none !important;
+  margin-top: 10vh;
+
+  img {
+    width: 50px;
+    height: auto;
+    cursor: pointer;
   }
 `;
 

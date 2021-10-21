@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import styled from "styled-components";
@@ -37,10 +37,10 @@ const Article = ({ post, i, posts }) => {
   return (
     <Post onClick={toggleOpen} isOpen={isOpen} layout='position'>
       <General layout>
-        <h3>{post.title}</h3>
+        <h2>{post.title}</h2>
         <Metrics layout>
-          <Eye val={2590} />
-          <Heart val={40} />
+          <Eye slug={post.slug} methodChoice='GET' />
+          {/* <Heart /> */}
         </Metrics>
       </General>
       <PostDate layout post={post} posts={posts} i={i}>
@@ -77,7 +77,7 @@ export const Post = styled(motion.article)`
   min-height: 100%;
   margin-bottom: 1vh;
 
-  h3 {
+  h2 {
     color: var(--accent);
   }
 
@@ -125,6 +125,12 @@ export const General = styled(motion.div)`
   gap: 10%;
   align-items: center;
   width: 100%;
+
+  @media (max-width: 500px) {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 5vh;
+  }
 `;
 
 export const Metrics = styled(motion.div)`
