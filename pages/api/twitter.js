@@ -7,12 +7,12 @@ const client = new twitter({
 });
 
 export default function handler(req, res) {
-  let testText = `Hello, there!`;
-  let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
+  //   let testText = `Hello, there!`;
+  //   let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
   client
     .post("statuses/update", {
-      //   status: `${req.body.data.tweetText} ${req.body.data.url}`,
-      status: `${testText} ${testUrl}`,
+      status: `${req.body.data.tweetText} ${req.body.data.url}`,
+      //   status: `${testText} ${testUrl}`,
     })
     .then((result) => {
       console.log('You successfully tweeted this : "' + result.text + '"');
