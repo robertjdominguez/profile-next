@@ -9,6 +9,7 @@ const client = new twitter({
 export default async (req, res) => {
   let testText = `Hello, there!`;
   let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
+  console.log(req.body.data);
   await client
     .post("statuses/update", {
       status: `${req.body.data.tweetText} https://dominguezdev.com/blog/${req.body.data.slug}`,
