@@ -6,10 +6,10 @@ const client = new twitter({
   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET,
 });
 
-export default function handler(req, res) {
-  //   let testText = `Hello, there!`;
-  //   let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
-  client
+export default async (req, res) => {
+  let testText = `Hello, there!`;
+  let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
+  await client
     .post("statuses/update", {
       status: `${req.body.data.tweetText} ${req.body.data.url}`,
       //   status: `${testText} ${testUrl}`,
@@ -19,4 +19,4 @@ export default function handler(req, res) {
     })
     .catch(console.error);
   res.status(200).json({ msg: "Automation FTW, dude." });
-}
+};
