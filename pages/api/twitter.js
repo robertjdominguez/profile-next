@@ -11,7 +11,7 @@ export default async (req, res) => {
   let testUrl = `https://www.dominguezdev.com/blog/qr-carpool`;
   await client
     .post("statuses/update", {
-      status: `${req.body.data.tweetText} ${req.body.data.url}`,
+      status: `${req.body.data.tweetText} https://dominguezdev.com/blog/${req.body.data.slug}`,
       //   status: `${testText} ${testUrl}`,
     })
     .then((result) => {
