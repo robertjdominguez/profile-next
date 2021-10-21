@@ -15,7 +15,6 @@ export default function Home() {
           DominguezDev | Rob Dominguez: developer, educator, director of
           education technology
         </title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <Hero
         variants={headingAnimations}

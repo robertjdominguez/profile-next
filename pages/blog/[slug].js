@@ -45,10 +45,13 @@ const Post = ({ post }) => {
   return (
     <>
       <Head>
+        <title>`DominguezDev - Blog | ${post.title}`</title>
         <meta
           property='og:url'
           content={`https://dominguezdev.com/blog/${post.slug}`}
         />
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:creator' content='@_RobDominguez' />
         <meta property='og:title' content={`${post.title}`} />
         <meta property='og:description' content={`${post.hook}`} />
         <meta property='og:image' content={`${post.image.url}`} />
