@@ -194,6 +194,6 @@ export async function getStaticPaths() {
     paths: posts.map(({ slug }) => ({
       params: { slug },
     })),
-    fallback: false,
+    fallback: "blocking",
   };
 }
