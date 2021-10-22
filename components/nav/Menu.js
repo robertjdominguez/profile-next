@@ -49,6 +49,9 @@ const Menu = () => {
           </NavLink>
         </li> */}
         <Social>
+          <a href='mailto:rob@dominguezdev.com'>
+            <img src='./email.svg' alt='Email Rob Dominguez' />
+          </a>
           <a href='https://github.com/robertjdominguez' target='_blank'>
             <img src='./gh.svg' alt='Github Profile for Rob Dominguez' />
           </a>
