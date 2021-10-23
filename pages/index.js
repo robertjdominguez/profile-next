@@ -15,6 +15,10 @@ export default function Home() {
           DominguezDev | Rob Dominguez: developer, educator, director of
           education technology
         </title>
+        <meta
+          name='description'
+          content="Rob Dominguez is an educator and developer from Birmingham, Alabama. He enjoys working on collaborative, challenging projects. He's open to freelance development work in town and remotely."
+        />
       </Head>
       <Hero
         variants={headingAnimations}
@@ -31,11 +35,9 @@ export default function Home() {
             to solve problems.
           </motion.p>
         </motion.div>
-        <motion.img
-          variants={headingChildren}
-          src='https://pbs.twimg.com/profile_images/938781090038259712/-9u8MJrL_400x400.jpg'
-        />
-        {/* <motion.p variants={headingChildren}>Image...</motion.p> */}
+        <ImageDiv variants={headingChildren}>
+          <img src='./face.png' alt='My face, dude' />
+        </ImageDiv>
         <Arrow />
       </Hero>
       <InView threshold={0.15} triggerOnce='true'>
@@ -91,13 +93,6 @@ const Hero = styled(motion.div)`
     }
   }
 
-  img {
-    border-radius: 50%;
-    border: solid 2px var(--accent);
-    height: auto;
-    width: 50%;
-  }
-
   p {
     margin-top: 0;
     font-size: var(--sub-heading);
@@ -105,6 +100,27 @@ const Hero = styled(motion.div)`
     span {
       color: var(--accent);
     }
+  }
+`;
+
+const ImageDiv = styled(motion.div)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--accent);
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  transition: ease-in-out 0.2s;
+  border: solid 1px var(--foreground);
+
+  img {
+    height: auto;
+    width: 100%;
+    border-radius: 50%;
+    transition: ease-in-out 0.2s;
+    filter: grayscale(100%);
+    object-fit: cover;
   }
 `;
 

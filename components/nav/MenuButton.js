@@ -43,6 +43,7 @@ export const MenuWrapper = styled.div`
   justify-content: flex-end;
   top: 0;
   background: var(--black);
+  z-index: 5;
 
   svg {
     height: 40px;
