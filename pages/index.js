@@ -120,7 +120,8 @@ const ImageDiv = styled(motion.div)`
     border-radius: 50%;
     transition: ease-in-out 0.2s;
     filter: grayscale(100%);
-    object-fit: cover;
+    /* object-fit: cover; */
+    object-position: 5px 4px;
   }
 `;
 
