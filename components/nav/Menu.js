@@ -50,19 +50,19 @@ const Menu = () => {
         </li> */}
         <Social>
           <a href='mailto:rob@dominguezdev.com'>
-            <img src='./email.svg' alt='Email Rob Dominguez' />
+            <img src='/email.svg' alt='Email Rob Dominguez' />
           </a>
           <a href='https://github.com/robertjdominguez' target='_blank'>
-            <img src='./gh.svg' alt='Github Profile for Rob Dominguez' />
+            <img src='/gh.svg' alt='Github Profile for Rob Dominguez' />
           </a>
           <a href='https://twitter.com/_robdominguez' target='_blank'>
-            <img src='./twitter.svg' alt='Twitter Profile for Rob Dominguez' />
+            <img src='/twitter.svg' alt='Twitter Profile for Rob Dominguez' />
           </a>
           <a
             href='https://www.linkedin.com/in/rob-dominguez-0b258b147'
             target='_blank'
           >
-            <img src='./li.svg' alt='LinkedIn Profile for Rob Dominguez' />
+            <img src='/li.svg' alt='LinkedIn Profile for Rob Dominguez' />
           </a>
         </Social>
       </Choices>
