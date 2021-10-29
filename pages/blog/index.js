@@ -76,6 +76,7 @@ export async function getStaticProps({ params }) {
         hook
         slug
         createdAt
+        oldDate
       }
     }
   `;

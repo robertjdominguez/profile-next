@@ -62,7 +62,11 @@ const Post = ({ post }) => {
         exit='hidden'
       >
         <h1>{post.title}</h1>
-        <Time>{createDate(post.createdAt)}</Time>
+        <Time>
+          {post.oldDate < post.createdAt
+            ? createDate(post.oldDate)
+            : createDate(post.createdAt)}
+        </Time>
         <Metrics layout>
           <Eye slug={post.slug} methodChoice='POST' />
           {/* <Heart val={40} /> */}
@@ -161,6 +165,7 @@ export async function getStaticProps({ params }) {
         hook
         body
         createdAt
+        oldDate
         slug
         image {
           url

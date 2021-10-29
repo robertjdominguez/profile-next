@@ -44,7 +44,11 @@ const Article = ({ post, i, posts }) => {
         </Metrics>
       </General>
       <PostDate layout post={post} posts={posts} i={i}>
-        <small>{createDate(post.createdAt)}</small>
+        <small>
+          {post.oldDate < post.createdAt
+            ? createDate(post.oldDate)
+            : createDate(post.createdAt)}
+        </small>
       </PostDate>
       <AnimatePresence>
         <Deets
