@@ -113,6 +113,7 @@ export const Deets = styled(motion.div)`
     margin-top: 2vh;
     line-height: 1.7;
     margin-right: 2vw;
+    font-size: 0.9rem;
   }
 
   :hover > button {

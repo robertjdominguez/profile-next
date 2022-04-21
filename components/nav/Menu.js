@@ -33,11 +33,11 @@ const Menu = () => {
             <a>Home</a>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink onClick={(e) => handleLink(e, "/development")}>
             <a>Development</a>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink onClick={(e) => handleLink(e, "/blog")}>
             <a>Blog</a>

@@ -57,9 +57,9 @@ export default function Home() {
               on throughout the day.
             </p>
             <div>
-              <Link href='/development' scroll={false}>
+              {/* <Link href='/development' scroll={false}>
                 <button>Development</button>
-              </Link>
+              </Link> */}
               <Link href='/blog' scroll={false}>
                 <button>Blog</button>
               </Link>
